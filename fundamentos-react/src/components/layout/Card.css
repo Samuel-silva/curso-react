@@ -1,0 +1,18 @@
+.card {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 #999;
+    margin: 15px;
+    min-width: 300px;
+}
+.card__title {
+    border-radius: 5px 5px 0 0;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+.card__content {
+    padding: 15px;
+}

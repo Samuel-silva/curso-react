@@ -1,4 +1,9 @@
 body {
     background: #F1F1F1;
     color: #222;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+h2, h3 {
+    margin: 0;
 }

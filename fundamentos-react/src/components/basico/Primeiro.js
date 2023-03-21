@@ -5,8 +5,8 @@ export default function Primeiro() {
 
   return (
     <div>
-      <h1>Primeiro componente.</h1>
-      <h2>{ msg }</h2>
+      <h2>Primeiro componente.</h2>
+      <h3>{ msg }</h3>
     </div>
   )
 }
