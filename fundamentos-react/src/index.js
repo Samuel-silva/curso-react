@@ -5,31 +5,15 @@
 // root.render(<h1>Hello, World!!</h1>);
 
 import './index.css'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import React from 'react'
 
-import Primeiro from './components/basico/Primeiro'
-import ComParametro from './components/basico/ComParametro'
-import Fragmento from './components/basico/Fragmento'
+import App from './App'
 
 // const el = document.getElementById('root')
-// ReactDom.render('Olá React!', el)
+// ReactDOM.render('Olá React!', el)
 
-
-ReactDom.render(
-  <div>
-    <Primeiro />
-    <ComParametro
-      titulo="Situação do aluno"
-      aluno="Samuel"
-      nota={8.7}
-    />
-    <ComParametro
-      titulo="Situação do aluno"
-      aluno="Maria"
-      nota={9.2}
-    />
-    <Fragmento />
-  </div>,
+ReactDOM.render(
+  <App />,
   document.getElementById('root')
 )
