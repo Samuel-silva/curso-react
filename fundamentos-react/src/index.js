@@ -10,6 +10,7 @@ import React from 'react'
 
 import Primeiro from './components/basico/Primeiro'
 import ComParametro from './components/basico/ComParametro'
+import Fragmento from './components/basico/Fragmento'
 
 // const el = document.getElementById('root')
 // ReactDom.render('Olá React!', el)
@@ -28,6 +29,7 @@ ReactDom.render(
       aluno="Maria"
       nota={9.2}
     />
+    <Fragmento />
   </div>,
   document.getElementById('root')
 )
