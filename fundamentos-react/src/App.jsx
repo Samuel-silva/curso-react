@@ -10,13 +10,21 @@ import Familia from './components/basico/Familia'
 import FamiliaMembro from './components/basico/FamiliaMembro'
 import ListaAlunos from './components/repeticao/ListaAlunos'
 import TabelaProdutos from './components/repeticao/TabelaProdutos'
+import ParOuImpar from './components/condicional/ParOuImpar'
+import UsuarioInfo from './components/condicional/UsuarioInfo'
 
 export default () => (
   <div className="app">
-    <h1>Fundamentos React 2</h1>
+    <h1>Fundamentos React</h1>
 
     <div className="card-conteiner">
-    <Card titulo="#07 - Desafio repetição">
+      <Card titulo="#08 - Renderização condicional">
+        <ParOuImpar numero={21} />
+        <UsuarioInfo usuario={{nome: "Fernando"}} />
+        <UsuarioInfo />
+      </Card>
+
+      <Card titulo="#07 - Desafio repetição">
         <TabelaProdutos />
       </Card>
 
