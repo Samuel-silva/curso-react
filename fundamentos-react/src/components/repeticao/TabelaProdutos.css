@@ -1,0 +1,13 @@
+.table-product {
+    border-collapse: collapse;
+    width: 100%;
+}
+.table-product tbody tr:nth-child(even),
+.table-product thead tr {
+    background-color: #DDD;
+}
+.table-product td, th {
+    border: 1px solid #DDD;
+    padding: 8px;
+    text-align: left;
+}
