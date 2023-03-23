@@ -21,7 +21,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "jsx-a11y/anchor-is-valid": "off",
+      "eslint-disable": 0,
+      "jsx-a11y/accessible-emoji": "off"
+    }
   },
   "browserslist": {
     "production": [
