@@ -10,11 +10,11 @@ export default function Input(props) {
   return (
     <div className="input">
       <h2>{valor}</h2>
-      <input value={valor} onChange={quandoDigitar} />
+      <input className='input' value={valor} onChange={quandoDigitar} />
       <br /><br />
-      <input value={valor} readOnly />
+      <input className='input' value={valor} readOnly />
       <br /><br />
-      <input value={undefined} />
+      <input className='input' value={undefined} />
     </div>
   )
 }

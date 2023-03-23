@@ -8,6 +8,7 @@ export default function IndiretaFilho(props) {
     <div>
       <p>Filho</p>
       <button
+        className="btn btn-success"
         onClick={ _ => quandoClicar('João', gerarIdade, gerarBoolean) }
       >
         Fornecer informações

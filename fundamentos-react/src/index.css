@@ -4,6 +4,36 @@ body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
-h2, h3 {
-    margin: 0;
+h2, h3 { margin: 0; }
+.ta-c { text-align: center; }
+
+.input {
+    font-size: 1rem;
+    padding: 5px 10px;
 }
+
+.btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+    padding: 5px 15px;
+}
+.btn-primary {
+    background: #03396c;
+    color: white;
+}
+
+.btn-danger {
+    background: #851e3e;
+    color: white;
+}
+
+.btn-success {
+    background: #008744;
+    color: white;
+}
+
+.mb { margin-bottom: 5px; }
+.ml { margin-left: 5px; }
+.mr { margin-right: 5px; }
+.mt { margin-top: 5px; }
