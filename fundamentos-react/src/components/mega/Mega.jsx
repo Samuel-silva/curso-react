@@ -1,86 +1,68 @@
 import './Mega.css'
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Mega extends Component {
-  state = {
-    qtdNumeros: 6,
-    listaNumeros: ''
+export default function Mega(props) {
+
+  function gerarNumerosUnicos(min, max, array) {
+    const aleatorio = parseInt(Math.random() * (max + 1 - min)) + min
+
+    return array.includes(aleatorio) ?
+      gerarNumerosUnicos(min, max, array) :
+      aleatorio
   }
 
-  setQtdNumeros = (novoNum) => {
-    this.setState({
-      qtdNumeros: novoNum
-    })
-  }
-
-  comparaNumeros(a, b) {
-    return a - b;
-  }
-
-  gerarNumAleatorios = () => parseInt(Math.random() * (60)) + 1
-
-  checkNumRepetido = (array, num) => {
-    return !!array.find(e => e === num);
-  }
-
-  gerarNumeros = () => {
-    const numeros = []
-
-    for (let index = 0; index < this.state.qtdNumeros; index++) {
-      let numero = this.gerarNumAleatorios()
-      let numeroRepetido = this.checkNumRepetido(numeros, numero);
-
-      while (numeroRepetido) {
-        numero = this.gerarNumAleatorios()
-        numeroRepetido = this.checkNumRepetido(numeros, numero);
-      }
-
-      numeros.push(numero)
-      numeros.sort(this.comparaNumeros);
-    }
+  function gerarNumerosMega(qtd) {
+    const numeros = Array(qtd)
+      .fill(0)
+      .reduce((nums) => {
+        const novoNumero = gerarNumerosUnicos(1, 60, nums)
+        return [...nums, novoNumero]
+      }, [])
+      .sort((a, b) => a - b)
 
     return numeros
   }
 
-  gerarLista = () => {
-    const numeros = this.gerarNumeros()
+  function gerarLista(qtd) {
+    const numeros = gerarNumerosMega(qtd || qtdNumeros)
     const lista = numeros.map(numero => {
       return (
         <li key={numero} className="lista__item">{numero}</li>
       )
     })
 
-    this.setState({
-      listaNumeros: lista
-    })
+    return lista;
   }
 
-  render() {
-    return (
-      <div>
-        <p className="ta-c">Quantidade de numeros</p>
-        <div className="ta-c">
-          <label htmlFor="qtdNumeros">
-            <input
-              className='input mb'
-              id="qtdNumeros"
-              min="6"
-              max="15"
-              type="number"
-              value={this.state.qtdNumeros}
-              onChange={e => this.setQtdNumeros(+e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="ta-c mt">
-          <button className="btn btn-success" onClick={this.gerarLista}>Gerar numeros</button>
-        </div>
-        <ul className='lista'>
-          {this.state.listaNumeros}
-        </ul>
+  const  [qtdNumeros, setQtdNumeros] = useState(6)
+  const  [listaNumeros, setListaNumeros] = useState(gerarLista)
+
+  return (
+    <div>
+      <p className="ta-c">Quantidade de números:</p>
+      <div className="ta-c">
+        <label htmlFor="qtdNumeros">
+          <input
+            className='input mb'
+            id="qtdNumeros"
+            min="6"
+            max="15"
+            type="number"
+            value={qtdNumeros}
+            onChange={(e) => {
+              setQtdNumeros(+e.target.value)
+              setListaNumeros(gerarLista(+e.target.value))
+            }}
+          />
+        </label>
       </div>
-    )
-  }
-}
+      <ul className='lista'>
+        {listaNumeros}
+      </ul>
 
-export default Mega
+      <div className="ta-c mt">
+        <button className="btn btn-success" onClick={_ => setListaNumeros(gerarLista(qtdNumeros))}>Gerar novos números</button>
+      </div>
+    </div>
+  )
+}
