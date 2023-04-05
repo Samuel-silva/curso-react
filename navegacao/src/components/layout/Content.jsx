@@ -2,8 +2,8 @@ import './Content.css';
 
 function Content(props) {
 	return (
-		<main className="Content">
-			<p>Content</p>
+		<main className="content">
+			<h1>Content</h1>
 		</main>
 	);
 }
