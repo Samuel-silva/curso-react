@@ -1,9 +1,18 @@
+import About from '../../views/examples/About';
+import Home from '../../views/examples/Home';
+import Param from '../../views/examples/Param';
 import './Content.css';
+import { Routes, Route } from "react-router-dom";
 
 function Content(props) {
 	return (
 		<main className="content">
-			<h1>Content</h1>
+			<Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/param/:id" element={<Param />} />
+        <Route path="/" exact element={<Home />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
 		</main>
 	);
 }
