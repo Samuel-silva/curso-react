@@ -4,7 +4,7 @@ import SectionTitle from '../../components/layout/SectionTitle'
 
 function sum(a, b) {
 	const future = Date.now() + 500
-	while(Date.now() < future) {}
+	while (Date.now() < future) { }
 	return a + b;
 }
 
@@ -22,25 +22,25 @@ const UseMemo = (props) => {
 				subtitle="Retorna um valor memoizado!"
 			/>
 			<SectionTitle title="Exercício #01" />
-      <div className="center">
+			<div className="center">
 				<input
-          type="number"
-          className="input"
-          value={n1}
-          onChange={e => setN1(parseInt(e.target.value))}
-        />
+					type="number"
+					className="input"
+					value={n1}
+					onChange={e => setN1(parseInt(e.target.value))}
+				/>
 				<input
-          type="number"
-          className="input"
-          value={n2}
-          onChange={e => setN2(parseInt(e.target.value))}
-        />
+					type="number"
+					className="input"
+					value={n2}
+					onChange={e => setN2(parseInt(e.target.value))}
+				/>
 				<input
-          type="number"
-          className="input"
-          value={n3}
-          onChange={e => setN3(parseInt(e.target.value))}
-        />
+					type="number"
+					className="input"
+					value={n3}
+					onChange={e => setN3(parseInt(e.target.value))}
+				/>
 				<span className="text">{result}</span>
 			</div>
 		</div>
