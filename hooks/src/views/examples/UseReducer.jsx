@@ -1,31 +1,8 @@
 import React, { useReducer, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 
-const initialState = {
-	cart: [],
-	products: [],
-	user: null,
-	number: 0,
-}
-
-function reducer(state, action) {
-	switch (action.type) {
-		case 'numberAdd2':
-			return {...state, number: state.number + 2 }
-		case 'login':
-			return {...state, user: { name: action.payload }}
-		case 'numberMulti7':
-			return {...state, number: state.number * 7 }
-		case 'numberDiv25':
-			return {...state, number: state.number / 25 }
-		case 'numberInt':
-			return {...state, number: parseInt(state.number) }
-		case 'numberAddN':
-			return {...state, number: state.number + action.payload }
-		default:
-			return state
-	}
-}
+import { initialState, reducer } from '../../store'
+import { numberAdd2, login } from '../../store/actions'
 
 const UseReducer = (props) => {
 	const [numberAdd, setNumberAdd] = useState(0)
@@ -46,31 +23,31 @@ const UseReducer = (props) => {
 				<div>
 					<button
 						className="btn"
-						onClick={() => dispatch({type: 'login', payload: 'Maria'})}
+						onClick={() => login(dispatch, 'Samuel')}
 					>
 						Login
 					</button>
 					<button
 						className="btn"
-						onClick={() => dispatch({type: 'numberAdd2'})}
+						onClick={() => numberAdd2(dispatch)}
 					>
 						+2
 					</button>
 					<button
 						className="btn"
-						onClick={() => dispatch({type: 'numberMulti7'})}
+						onClick={() => dispatch({ type: 'numberMulti7' })}
 					>
 						x7
 					</button>
 					<button
 						className="btn"
-						onClick={() => dispatch({type: 'numberDiv25'})}
+						onClick={() => dispatch({ type: 'numberDiv25' })}
 					>
 						÷25
 					</button>
 					<button
 						className="btn"
-						onClick={() => dispatch({type: 'numberInt'})}
+						onClick={() => dispatch({ type: 'numberInt' })}
 					>
 						Inteiro
 					</button>
@@ -84,7 +61,7 @@ const UseReducer = (props) => {
 					/>
 					<button
 						className="btn"
-						onClick={() => dispatch({type: 'numberAddN', payload: numberAdd })}
+						onClick={() => dispatch({ type: 'numberAddN', payload: numberAdd })}
 					>
 						Adicionar
 					</button>
